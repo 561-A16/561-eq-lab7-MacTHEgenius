@@ -1,0 +1,21 @@
+
+sudo: required
+language: csharp
+
+services:
+  - docker
+
+
+before_install:
+    # Build a docker image named webapp:test from a docker file placed in ./docker directory.
+    - docker build -t webapp:test -f ./docker/Dockerfile .
+
+script:
+    # Run (or create) a container from webapp:test docker image
+    # Bind nuget packages directory
+    - docker run -it --rm -v ~/.nuget/packages:/root/.nuget/packages webapp:test
+
+# Caches Nuget packages
+cache:
+    directories:
+        - ~/.nuget/packages
