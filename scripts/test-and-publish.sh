@@ -2,14 +2,9 @@
 
 set -e
 
-# Restore appweb packages
-# cd /app/appweb
+# Restore appweb and appweb.unittests packages
 dotnet restore
-
-# Restore appweb packages
-cd /app/appweb.unittests
-# dotnet restore
-dotnet test
+dotnet test appweb.unittests
 
 # Publish app
-dotnet publish -o /publish
+dotnet publish appweb -o /root/publish

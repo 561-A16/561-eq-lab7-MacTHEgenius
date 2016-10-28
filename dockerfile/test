@@ -6,7 +6,7 @@ RUN chmod +x /app/test-and-publish.sh
 EXPOSE 5000
 ENV ASPNETCORE_URLS http://+:5000
 
-ENTRYPOINT ["sh", "/scripts/test-and-publish.sh"]
+ENTRYPOINT ["sh", "/app/test-and-publish.sh"]
 
 COPY src /app
 
