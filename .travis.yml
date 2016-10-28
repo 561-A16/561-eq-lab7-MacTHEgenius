@@ -12,7 +12,7 @@ cache:
 
 before_install:
     # Build a docker image named webapp:test from a docker file placed in ./docker directory.
-    - docker build -t webapp:test -f ./dockerfiles/test .
+    - docker build -t webapp:test -f ./dockerfile/test .
 
 script:
     # Run (or create) a container from webapp:test docker image
